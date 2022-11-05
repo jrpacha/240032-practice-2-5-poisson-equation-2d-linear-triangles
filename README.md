@@ -1,18 +1,18 @@
-# 240032-Practice-2-5-Poisson-Equation-2D-linear-triangles
+# 240032 Practice 2.5: Poisson Equation 2D for linear triangles
 You can find the session's guide ---together with other extra material files---at 
 at professor Antonio Susin's website,
 
 https://numfactory.upc.edu/blog/2018/09/03/finite-element-introduction-course/
 
 ### Additional files required for the practice
-1. From <tt>additionalFiles.zip</tt>
+1. From folder <tt>additionalFiles</tt>
    * <tt>baryCoord.m</tt>
    * <tt>plotElementsOld.m</tt>
    * <tt>plotElements.m</tt>
-   * <tt>plotCountourSolution<tt>:w
+   * <tt>plotCountourSolution</tt>
 
-You can download <tt>additionalFiles.zip</tt> from professor Antonio Toni
-Susin's website,
+You can download the zipped folder, <tt>additionalFiles.zip</tt>, from
+professor Antonio Susin's _Numerical Factory_ website,
 
 https://numfactory.upc.edu/numfactory/subjects/FEM/Extra/additionalFiles.zip
 
