@@ -2,6 +2,7 @@ clearvars
 close all
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Practice 2.5 Poisson Equation (2D Linear Triangles)
+% Version 1
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Poisson example
@@ -44,14 +45,10 @@ numElem=size(elem,1); %find out the nimber of elements
 numbering=1; %if you want to see number of nodes and elements
 plotElementsOld(nodes,elem,numbering);
 
-% Coefficients of the modal equation 
-a11=1;
-a12=0;
-a21=a12;
-a22=a11;
-a00=0;
-f=1;
-coeff=[a11,a12,a21,a22,a00,f];
+%In this case it can be seen that local matrix and load vectors are the
+%same for all the elements and their values are
+Ke = [1, -1, 0; -1, 2, -1; 0, -1, 1]/2.0;
+Fe = [1; 1; 1]/24.0;
 
 K = zeros(numNod);
 Q = zeros(numNod,1);
@@ -61,13 +58,10 @@ for e = 1:numElem
     %
     % Assemble the elements
     %
-    [Ke,Fe] = linearTriangElement(coeff, nodes, elem, e);
     rows = [elem(e,1), elem(e,2), elem(e,3)];
     cols = rows;
     K(rows,cols) = K(rows,cols) + Ke;
-    if (coeff(6) ~= 0)
-        F(rows) = F(rows) + Fe;
-    end
+    F(rows) = F(rows) + Fe;
 end
 %
 % Boundary Conditions
@@ -75,10 +69,10 @@ end
 fixedNodes = [4,5,6]; %fixed nodes (global numbering)
 freeNodes = setdiff(1:numNod,fixedNodes);
 
-% Essential B.C.
+% Natural B.C.
 Q(freeNodes) = 0; %In *this* case redundant, since Q
                   %Q was initialised to zero
-% Natural B.C
+% Essential B.C.
 u = zeros(numNod,1);
 u(fixedNodes) = 0;
 
