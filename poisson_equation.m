@@ -94,12 +94,12 @@ u(freeNodes) = um;
 Q = K*u - F;
 
 % Table with solutions
-sols = [(1:numNod)',u,Q];
+sols = [(1:numNod)',nodes, u,Q];
 
 %format short e
 %format compact
-fprintf("%5s%8s%17s\n","node","U","Q")
-fprintf("%5d%14.6e%16.6e\n",sols');
+fprintf("%5s%9s%14s%14s%14s\n","node","X", "Y", "U", "Q")
+fprintf("%5d%14.6e%14.6e%14.6e%14.6e\n",sols');
 
 % Color map for the solution 
 titol='Poisson solution';
