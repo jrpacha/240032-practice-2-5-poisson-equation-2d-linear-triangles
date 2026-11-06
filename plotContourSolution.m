@@ -17,6 +17,6 @@ figure()
 colormap(colorScale)
  plot(X,Y,'k')
  fill(X,Y,plotValues)
- title(titol) ;         
+ title(titol) ;
  axis equal;
  colorbar
